@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>Nome:</th>
+            <td>{{ persona.nome }}</td>
+        </tr>
+
+        <tr>
+            <th>Cognome:</th>
+            <td>{{ persona.cognome }}</td>
+        </tr>
+
+        <tr>
+            <th>Data di nascita:</th>
+            <td>{{ persona.data_nascita }}</td>
+        </tr>
+
+        <tr>
+            <th>Libri:</th>
+            <td>
+                {% for libro in persona.libri.all %}
+                    {{ libro.titolo }}<br />
+                {% empty %}
+                    - Nessuno -
+                {% endfor %}
+            </td>
+        </tr>
+
+        <tr>
+            <th>Telefonino</th>
+            <td>
+                {{ persona.telefonino }}
+            </td>
+        </tr>
+
+    </table>
+
+    <a href="/persone">Indietro</a>
+{% endblock %}

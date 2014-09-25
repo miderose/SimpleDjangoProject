@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for telefonino in telefonini_list %}
+        <h3>Chi possiede un "{{ telefonino }}"?</h3>
+        <ul>
+            {% for persona in telefonino.persona_set.all %}
+                <li>{{ persona }}</li>
+            {% empty %}
+                <i>nessuno</i>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endblock %}
